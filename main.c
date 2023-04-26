@@ -10,7 +10,7 @@
 int main(int argc, char **argv)
 {
 	char *token, *pro = "$", *buff, *buff_copy = NULL;
-	const char *delim = " \n";
+	const char *delim = " ";
 	size_t no = 0;
 	ssize_t exit;
 	int num, i;
