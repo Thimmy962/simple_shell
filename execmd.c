@@ -1,4 +1,5 @@
 #include "main.h"
+#include <sys/wait.h>
 
 /**
 * execmd - executed a command
@@ -7,9 +8,14 @@
 
 void execmd(char **argv)
 {
-	char *cmd = NULL;
-	char *path = "/usr/bin/";
-	char *full_cmd;
+	pid_t pid;
+	char *cmd, *path, *full_cmd;
+
+	pid = fork();
+	if (pid == 0)
+	{
+	cmd = NULL;
+	path = "/usr/bin/";
 
 	if (argv)
 	{
@@ -21,5 +27,11 @@ void execmd(char **argv)
 			perror("Error:");
 	}
 	free(full_cmd);
+	exit(0);
+	}
+	else if (pid == -1)
+		perror("fork");
+	else
+		wait(NULL);
 }
 
