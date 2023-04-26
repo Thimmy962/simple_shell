@@ -9,7 +9,7 @@
 
 int main(int argc, char **argv)
 {
-	char *token, *pro = "(SHELL)$", *buff, *buff_copy = NULL;
+	char *token, *pro = "$", *buff, *buff_copy = NULL;
 	const char *delim = " \n";
 	size_t no = 0;
 	ssize_t exit;
