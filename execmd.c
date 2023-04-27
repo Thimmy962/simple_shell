@@ -23,7 +23,7 @@ void execmd(char **argv)
 		full_cmd = malloc(strlen(cmd) + strlen(path) + 1);
 		strcpy(full_cmd, path);
 		strcat(full_cmd, cmd);
-		if ((execve(full_cmd, argv,  NULL)) == -1)
+		if ((execve(cmd, argv,  NULL)) == -1)
 			perror("Error:");
 	}
 	free(full_cmd);
